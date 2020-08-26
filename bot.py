@@ -73,8 +73,8 @@ async def on_message(message):
         html = requests.get('https://www.instagram.com/gulsahky/')
         soup = BeautifulSoup(html.text, 'lxml')
         item = soup.select_one("meta[property='og:description']")
-        name = item.find_previous_sibling().get("content").split(".")[0]
-        followers = item.get("content").split(",")[0]
+        name = item.find_previous_sibling().get("content").split(".")[0].strip()
+        followers = item.get("content").split(",")[0].strip()
         following = item.get("content").split(",")[1].strip()
         posts = item.get("content").split(",")[2].strip()
         embed = discord.Embed(color=0xF3E416)
