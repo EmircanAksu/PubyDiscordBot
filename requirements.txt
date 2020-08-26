@@ -1,0 +1,8 @@
+discord.py
+python-twitch-client
+requests
+googletrans
+BeautifulSoup
+
+
+
