@@ -84,8 +84,8 @@ async def on_message(message):
         embed.add_field(name="Takip Edilen", value=f'{following}')
         embed.add_field(name="Posts", value=f'{posts}')
         embed.add_field(name="URL",value="https://www.instagram.com/gulsahky")
-        item = soup.select_one("meta[property='og:image']")
-        image = item.get("content").split(",")[0]
+        itemimage = soup.select_one("meta[property='og:image']")
+        image = itemimage.get("content").split(",")[0]
         embed.set_thumbnail(url=image)
         await message.channel.send(embed=embed)
     if message.content.startswith(prefix + 'imdb'):
