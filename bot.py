@@ -76,18 +76,12 @@ async def on_message(message):
         followers = item.get("content").split(",")[0]
         following = item.get("content").split(",")[1]
         posts = item.get("content").split(",")[2]
-        itemtitle = soup.select_one("meta[property='og:title']")
-        name = itemtitle.get("content").split(",")[0]
         embed = discord.Embed(color=0xF3E416)
         embed.title = "Instagram"
-        embed.add_field(name="Kullanıcı Adı", value=name)
         embed.add_field(name="Takipçi", value=followers)
         embed.add_field(name="Takip Edilen", value=following)
         embed.add_field(name="Gönderi", value=posts)
         embed.add_field(name="URL",value="https://www.instagram.com/gulsahky")
-        itemimage = soup.select_one("meta[property='og:image']")
-        image = itemimage.get("content").split(",")[0]
-        embed.set_thumbnail(url=image)
         await message.channel.send(embed=embed)
     if message.content.startswith(prefix + 'imdb'):
         await message.channel.send("İçerik Adı Giriniz :arrow_down:")
