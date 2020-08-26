@@ -80,10 +80,10 @@ async def on_message(message):
         name = itemtitle.get("content").split(",")[0]
         embed = discord.Embed(color=0xF3E416)
         embed.title = "Instagram"
-        embed.add_field(name="Kullanıcı Adı", value=f'{name}')
-        embed.add_field(name="Takipçi", value=f'{followers}')
-        embed.add_field(name="Takip Edilen", value=f'{following}')
-        embed.add_field(name="Gönderi", value=f'{posts}')
+        embed.add_field(name="Kullanıcı Adı", value=name)
+        embed.add_field(name="Takipçi", value=followers)
+        embed.add_field(name="Takip Edilen", value=following)
+        embed.add_field(name="Gönderi", value=posts)
         embed.add_field(name="URL",value="https://www.instagram.com/gulsahky")
         itemimage = soup.select_one("meta[property='og:image']")
         image = itemimage.get("content").split(",")[0]
