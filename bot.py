@@ -71,14 +71,13 @@ async def on_message(message):
         await message.channel.send(msg)
     if message.content.startswith(prefix + 'instagram'):
         html = requests.get('https://www.instagram.com/gulsahky/')
-        soup = BeautifulSoup(html.text, 'html.parser')
+        soup = BeautifulSoup(html.text, 'lxml')
         item = soup.select_one("meta[property='og:description']")
-        name = item.find_previous_sibling().get("content").split("•")[0]
         followers = item.get("content").split(",")[0]
         following = item.get("content").split(",")[1].strip()
         embed = discord.Embed(color=0xF3E416)
         embed.title = "Instagram"
-        embed.add_field(name="Kullanıcı Adı", value=name)
+        embed.add_field(name="Kullanıcı Adı", value="Gulsahky (@gulsahky)")
         embed.add_field(name="Takipçi", value=followers)
         embed.add_field(name="Takip Edilen", value=following)
         embed.add_field(name="URL",value="https://www.instagram.com/gulsahky")
