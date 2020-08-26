@@ -72,17 +72,18 @@ async def on_message(message):
     if message.content.startswith(prefix + 'instagram'):
         html = requests.get('https://www.instagram.com/gulsahky/')
         soup = BeautifulSoup(html.text, 'lxml')
+        itemtitle = soup.select_one("meta[property='og:title']")
         item = soup.select_one("meta[property='og:description']")
         followers = item.get("content").split(",")[0].strip()
         following = item.get("content").split(",")[1].strip()
         posts = item.get("content").split(",")[2].strip()
-        itemtitle = soup.select_one("meta[property='og:title']")
         name = itemtitle.get("content").split(",")[0].strip()
         embed = discord.Embed(color=0xF3E416)
-        embed.title = f'{name}'
+        embed.title = "Instagram"
+        embed.add_field(name="Kullanıcı Adı", value=f'{name}')
         embed.add_field(name="Takipçi", value=f'{followers}')
         embed.add_field(name="Takip Edilen", value=f'{following}')
-        embed.add_field(name="Posts", value=f'{posts}')
+        embed.add_field(name="Gönderi", value=f'{posts}')
         embed.add_field(name="URL",value="https://www.instagram.com/gulsahky")
         itemimage = soup.select_one("meta[property='og:image']")
         image = itemimage.get("content").split(",")[0]
