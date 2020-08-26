@@ -74,10 +74,10 @@ async def on_message(message):
         soup = BeautifulSoup(html.text, 'lxml')
         itemtitle = soup.select_one("meta[property='og:title']")
         item = soup.select_one("meta[property='og:description']")
-        followers = item.get("content").split(",")[0].strip()
-        following = item.get("content").split(",")[1].strip()
-        posts = item.get("content").split(",")[2].strip()
-        name = itemtitle.get("content").split(",")[0].strip()
+        followers = item.get("content").split(",")[0]
+        following = item.get("content").split(",")[1]
+        posts = item.get("content").split(",")[2]
+        name = itemtitle.get("content").split(",")[0]
         embed = discord.Embed(color=0xF3E416)
         embed.title = "Instagram"
         embed.add_field(name="Kullanıcı Adı", value=f'{name}')
