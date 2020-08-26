@@ -3,7 +3,7 @@ python-twitch-client
 requests
 googletrans
 bs4
-BeautifulSoup 
+
 
 
 

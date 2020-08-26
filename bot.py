@@ -73,7 +73,7 @@ async def on_message(message):
         html = requests.get('https://www.instagram.com/gulsahky/')
         soup = BeautifulSoup(html.text, 'lxml')
         item = soup.select_one("meta[property='og:description']")
-        name = item.find_previous_sibling().get("content").split("•")[0]
+        name = item.find_previous_sibling().get("content").split(".")[0]
         item = soup.select_one("meta[property='og:image']")
         image = item.get("content").split(",")[0]
         followers = item.get("content").split(",")[0]
