@@ -12,7 +12,7 @@ from twitch import TwitchClient
 from googletrans import Translator
 
 
-token = 'NzIxNjkxMTk0OTMyODU0ODM0.XuYNTQ.OdwqrKFJige3PjVyS9MePXKnnAM'
+token = ''
 prefix = '!'
 
 
