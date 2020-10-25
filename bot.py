@@ -71,7 +71,7 @@ async def on_message(message):
         await message.channel.send(msg)
     if message.content.startswith(prefix + 'instagram'):
         html = requests.get('https://www.instagram.com/gulsahky/')
-        soup = BeautifulSoup(html.text, 'lxml')
+        soup = BeautifulSoup(html.text, 'html.parser')
         item = soup.select_one("meta[property='og:description']")
         followers = item.get("content").split(",")[0].strip()
         following = item.get("content").split(",")[1].strip()
