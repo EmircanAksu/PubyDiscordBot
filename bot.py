@@ -26,11 +26,11 @@ async def on_ready():
 
 @client.event
 async def on_member_join(member):
-   await client.get_channel(744232867961241650).send(f"{member.mention} joined the server! :heart:")
+   await client.get_channel(discord-text-channel-id).send(f"{member.mention} joined the server! :heart:")
 
 @client.event
 async def on_member_remove(member):
-   await client.get_channel(744232867961241650).send(f"{member.mention} left the server! :slight_frown: ")
+   await client.get_channel(discord-text-channel-id).send(f"{member.mention} left the server! :slight_frown: ")
 
 
 @client.event
