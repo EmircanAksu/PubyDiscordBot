@@ -102,9 +102,9 @@ async def on_message(message):
     if message.content.startswith(prefix + 'help translate'):
         embed = discord.Embed(color=0x10A1C5)
         embed.title = "PubyBot TRANSLATOR" 
-        embed.add_field(name="!çeviri tr", value="This command is for translating from English to Turkish!")
-        embed.add_field(name="!çeviri en", value="This command is for translating from Turkish to English language!")
-        embed.add_field(name="!çeviri de", value="This command is for translating from Turkish to German!")
+        embed.add_field(name="!tranlate tr", value="This command is for translating from English to Turkish!")
+        embed.add_field(name="!translate en", value="This command is for translating from Turkish to English language!")
+        embed.add_field(name="!translate de", value="This command is for translating from Turkish to German!")
         embed.set_thumbnail(url="https://seeklogo.com/images/G/google-translate-logo-66F8665D22-seeklogo.com.png")
         await message.channel.send(embed=embed)
     if message.content.startswith(prefix + 'userinfo'):
