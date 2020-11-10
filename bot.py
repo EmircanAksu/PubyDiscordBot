@@ -70,30 +70,18 @@ async def on_message(message):
         msg =  zar , "{0.author.mention}".format(message)
         await message.channel.send(msg)
     if message.content.startswith(prefix + 'instagram'):
-         html = requests.get('https://www.instagram.com/gulsahky/')
+        html = requests.get('https://www.instagram.com/your-username/')
         soup = BeautifulSoup(html.text, 'html.parser')
-        data = soup.find_all('meta', attrs={'property': 'og:description'})
-        text = data[0].get('content').split()
-        user = '%s %s %s %s' % (text[-4], text[-3], text[-2], text[-1])
-        followers = text[0]
-        following = text[2]
-        posts = text[4]
-        print('Kullanıcı Adı:', user)
-        print('Takipçi:', followers)
-        print('Takip Edilen:', following)
-        print('Gönderiler:', posts)
+        item = soup.select_one("meta[property='og:description']")
+        followers = item.get("content").split(",")[0].strip()
+        following = item.get("content").split(",")[1].strip()
         embed = discord.Embed(color=0xF3E416)
         embed.title = "Instagram"
-        embed.add_field(name="Kullanıcı Adı", value=user)
-        embed.add_field(name="Takipçi", value=followers)
-        embed.add_field(name="Takip Edilen", value=following)
-        embed.add_field(name="Gönderiler", value=posts)
-        embed.add_field(name="URL", value="https://www.instagram.com/gulsahky")
-        itemimage = soup.find('meta', attrs={'property': 'og:image'})
-        image = itemimage.get('content').split(',')[0]
-        print("Profil Fotoğrafı:", image)
-        embed.set_thumbnail(url=image)
-        await ctx.send(embed=embed)
+        embed.add_field(name="Username", value="your-instagram-username")
+        embed.add_field(name="Followers", value=followers)
+        embed.add_field(name="Following", value=following)
+        embed.add_field(name="URL",value="https://www.instagram.com/your-instagram-username")
+        await message.channel.send(embed=embed)
     if message.content.startswith(prefix + 'imdb'):
         await message.channel.send("Input Movie/TV Series Name :arrow_down:")
         msg = await client.wait_for('message', check=lambda message: message.author)
